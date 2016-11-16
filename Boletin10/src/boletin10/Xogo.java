@@ -21,7 +21,7 @@ public class Xogo {
     
 public void unContraUn(){
     
-int adivinar,num,valorM,nIntentos; 
+int adivinar,num,valorAb,nIntentos; 
      
       num = Integer.parseInt(JOptionPane.showInputDialog("Xogador 1 introduce o número a adiviñar,debe ser entre 1 e 50 ")); 
       nIntentos = Integer.parseInt(JOptionPane.showInputDialog(" Introduce o número de intentos ")); 
@@ -33,13 +33,13 @@ int adivinar,num,valorM,nIntentos;
           System.exit(nIntentos);
            }   
        nIntentos--;
-        valorM = Math.abs(num-adivinar);
+        valorAb = Math.abs(num-adivinar);
      
-        if(valorM>=20){
+        if(valorAb>=20){
         JOptionPane.showMessageDialog(null," Demasiado lonxe,volve intentalo ");
-        }else if(valorM>=9){
+        }else if(valorAb>=9){
              JOptionPane.showMessageDialog(null," case ,volve intentalo ");
-        }else if(valorM>5){
+        }else if(valorAb>5){
             JOptionPane.showMessageDialog(null," Estiveche moy preto ");
         }           
     }while(num!=adivinar);
@@ -51,30 +51,34 @@ int adivinar,num,valorM,nIntentos;
 public void tiVsCpu(){
 
 
-    int adivinar,num,valorM,nIntentos; 
+    int adivinar,num,valorAb,nIntentos; 
     int nAleatorio = (int) (Math.random()* (1-50)+50);
       
-         num = Integer.parseInt(JOptionPane.showInputDialog(" introduce o número a adiviñar,debe ser entre 1 e 50 "));
-    do{        
-      
-         nIntentos = Integer.parseInt(JOptionPane.showInputDialog(" Introduce o número de intentos "));
-       if(nIntentos<0){         
+         
+        nIntentos = Integer.parseInt(JOptionPane.showInputDialog(" Introduce o número de intentos "));
+    do{       
+      JOptionPane.showMessageDialog(null,"Te quedan "+nIntentos+ " Intentos");
+      num = Integer.parseInt(JOptionPane.showInputDialog(" Adiviña o número ,debe ser entre 1 e 50 "));
+        
+       if(nIntentos<=0){         
          JOptionPane.showMessageDialog(null," Quedache sen intentos");
           System.exit(nIntentos);
            }   
+       
          nIntentos--;
       
-        valorM = Math.abs(num-nAleatorio);
-      if (valorM>20){
+        valorAb = Math.abs(num-nAleatorio);
+      if (valorAb>20){
           JOptionPane.showMessageDialog(null,"Demasiado lonxe");
-      }else if(valorM>=10&&valorM<=20){
+      }else if(valorAb>=10&&valorAb<=20){
         JOptionPane.showMessageDialog(null," lonxe,volve intentalo ");
-        }else if(valorM>=10&&valorM<=5){
+        }else if(valorAb>=10&&valorAb<=5){
              JOptionPane.showMessageDialog(null," preto ,volve intentalo ");
-        }else if(valorM<=5){
+        }else if(valorAb<=5){
             JOptionPane.showMessageDialog(null," Estiveche moy preto,proba de novo ");
            }
-                   
+              else
+            JOptionPane.showMessageDialog(null,"Onde vas!");
     }while(num!=nAleatorio);
     JOptionPane.showMessageDialog(null," Acertache!,noraboa ");
     
