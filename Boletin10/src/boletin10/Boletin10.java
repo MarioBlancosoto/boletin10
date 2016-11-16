@@ -17,7 +17,7 @@ public class Boletin10 {
     public static void main(String[] args) {
    Xogo obj1 = new Xogo();
    obj1.tiVsCpu();
-   
+   obj1.unContraUn();
     }
     
 }
